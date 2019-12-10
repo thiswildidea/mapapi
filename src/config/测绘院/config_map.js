@@ -1,0 +1,93 @@
+import mapconfigshare from '@/config/mapconfigshare.js';
+const mapconfig = {
+  jsApiUrl: mapconfigshare.jsApiUrl,
+  cssUrl: mapconfigshare.cssUrl,
+  proxyConifg: mapconfigshare.proxyConifg,
+  extent: mapconfigshare.extent,
+  Gridcamera: mapconfigshare.Gridcamera,
+  gisTokenServer: mapconfigshare.gisTokenServer,
+  PgHightlightsymbol: mapconfigshare.PgHightlightsymbol,
+  PointHightlightsymbol: mapconfigshare.PointHightlightsymbol,
+  PointSelectedHight: mapconfigshare.PointSelectedHight,
+  PolylineHightsymbol: mapconfigshare.PolylineHightsymbol,
+  GISService: {
+    geometryService: mapconfigshare.GISService.geometryService,
+    baseMapServices: mapconfigshare.GISService.baseMapServices,
+    operationLayers: mapconfigshare.GISService.operationLayers,
+
+    bussinesslayer: {
+      serverurl: "http://10.81.71.50/arcgis/rest/services",
+      istoken: false,
+      tokenType: "arcgis",
+      layers: [{
+        url: "http://10.101.42.199:8080/arcgis/rest/services/xh/XHWebM0822/MapServer",
+        id: "XH_DT_New",
+        istoken: false,
+        visible: false,
+        opacity: 1.0,
+        maptype: "MapImageLayer",
+        tag: "徐汇网格化数据",
+        title: "徐汇网格化数据",
+        type: "image",
+        listMode: 'hide',
+        imageUrl: require("../assets/basemap/mapType_img.jpg"),
+      }, {
+          url: "http://10.101.42.199:8080/arcgis/rest/services/xh/XHWebM0822/MapServer",
+          id: "XH_DT_New",
+          istoken: false,
+          visible: false,
+          opacity: 1.0,
+          maptype: "SHCDMapImageLayer",
+          tileurl: "http://powergis.smi.sh.cegn.cn/arcgis_js/4.12/4.12/esri/layers/json/tileJson.json",
+          tag: "徐汇网格化数据",
+          title: "徐汇网格化数据",
+          type: "image",
+          listMode: 'show',
+          imageUrl: require("../assets/basemap/mapType_img.jpg"),
+      }]
+    },
+
+    xuhuilayers: {
+      serverurl: "http://hostserver.xhbd.local/arcgis/rest/services",
+      istoken: false,
+      tokenType: "arcgis",
+      layers: [{
+        id: "XH_Graphiclayer",
+        istoken: false,
+        visible: true,
+        opacity: 1.0,
+        maptype: "GraphicsLayer",
+        tag: "辅助显示图层",
+        title: "辅助显示图层",
+        type: "image",
+        listMode: 'hide',
+        imageUrl: require("../assets/basemap/mapType_img.jpg"),
+      }, {
+        url: "http://10.108.3.48/changsanjiao/rest/services/XH_JD/FeatureServer",
+        id: "XH_JD",
+        istoken: false,
+        visible: false,
+        opacity: 1.0,
+        maptype: "FeatureLayer",
+        tag: "徐汇区街道",
+        title: "徐汇区街道",
+        type: "image",
+        listMode: 'show',
+        imageUrl: require("../assets/basemap/mapType_img.jpg"),
+      }, {
+        url: "http://10.108.3.48/changsanjiao/rest/services/XH_JD/FeatureServer",
+        id: "XH_JWH",
+        istoken: false,
+        visible: false,
+        opacity: 1.0,
+        maptype: "FeatureLayer",
+        tag: "徐汇居委会",
+        title: "徐汇居委会",
+        type: "image",
+        listMode: 'show',
+        imageUrl: require("../assets/basemap/mapType_img.jpg"),
+      }]
+    }
+  },
+};
+export default mapconfig;
